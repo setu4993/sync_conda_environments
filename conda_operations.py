@@ -29,7 +29,7 @@ def _create_update_env(filename: str, existing_envs: List[str]) -> str:
     return run_command(command)
 
 
-def export_envs(envs: List[str], output_path: str = '.'):
+def export_envs(envs: List[str], output_path: str):
     for env in envs:
         env_file = join(output_path, env) + '.yml'
         _export_env(filename=env_file)
