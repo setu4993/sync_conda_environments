@@ -2,17 +2,18 @@ from os.path import join, splitext, basename, isfile
 from typing import List
 import json
 import logging
+from copy import copy
 
-from .process import run_command
+from process import run_subprocess
 
 BASE_CONDA_ENV_COMMAND = ['conda', 'env']
 
 
 def _export_env(filename: str) -> str:
-    command = BASE_CONDA_ENV_COMMAND
+    command = copy(BASE_CONDA_ENV_COMMAND)
     command += ['export']
     command += _file_command(filename)
-    return run_command(command)
+    return run_subprocess(command)
 
 
 _file_command = lambda x: ['-f', f'{x}']
@@ -20,13 +21,13 @@ _file_command = lambda x: ['-f', f'{x}']
 
 def _create_update_env(filename: str, existing_envs: List[str]) -> str:
     name, _ = splitext(basename(filename))
-    command = BASE_CONDA_ENV_COMMAND
+    command = copy(BASE_CONDA_ENV_COMMAND)
     if name in existing_envs:
         command += ['update']
     else:
         command += ['create']
     command += _file_command(filename)
-    return run_command(command)
+    return run_subprocess(command)
 
 
 def export_envs(envs: List[str], output_path: str):
@@ -43,9 +44,9 @@ def create_update_envs(envs: List[str], env_files: List[str]):
 
 
 def list_envs() -> List[str]:
-    command = BASE_CONDA_ENV_COMMAND
+    command = copy(BASE_CONDA_ENV_COMMAND)
     command += ['list', '--json']
-    proc_output = run_command(command)
+    proc_output = run_subprocess(command)
     proc_json = json.loads(proc_output)
     env_locations = proc_json['envs']
     environments = []
