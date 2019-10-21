@@ -1,2 +1,5 @@
 # Skip .vscode files
 .vscode
+
+# Python Byte code
+*.pyc
