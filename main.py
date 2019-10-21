@@ -1,5 +1,5 @@
-from .conda_operations import list_envs, create_update_envs, export_envs
-from .file_operations import glob_env_files
+from conda_operations import list_envs, create_update_envs, export_envs
+from file_operations import glob_env_files
 
 
 if __name__ == '__main__':
