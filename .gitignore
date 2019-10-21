@@ -3,3 +3,6 @@
 
 # Python Byte code
 *.pyc
+
+# MacOS hidden files
+.DS_Store
