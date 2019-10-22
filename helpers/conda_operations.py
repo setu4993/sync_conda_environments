@@ -1,6 +1,6 @@
 from os.path import join, splitext, basename, isfile
 from typing import List
-import json
+from json import loads
 import logging
 from copy import copy
 
@@ -47,7 +47,7 @@ def list_envs() -> List[str]:
     command = copy(BASE_CONDA_ENV_COMMAND)
     command += ['list', '--json']
     proc_output = run_subprocess(command)
-    proc_json = json.loads(proc_output)
+    proc_json = loads(proc_output)
     env_locations = proc_json['envs']
     environments = []
     for env_location in env_locations:
