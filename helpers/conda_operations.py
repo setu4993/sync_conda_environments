@@ -4,7 +4,7 @@ from json import loads
 import logging
 from copy import copy
 
-from process import run_subprocess
+from .process import run_subprocess
 
 BASE_CONDA_ENV_COMMAND = ['conda', 'env']
 
