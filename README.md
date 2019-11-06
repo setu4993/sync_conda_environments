@@ -1,3 +1,3 @@
 # Sync Conda Environments
 
-Sync all your Conda environments across multiple computers.
+Sync **all** your Conda environments across multiple computers.
