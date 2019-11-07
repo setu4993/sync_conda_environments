@@ -11,4 +11,4 @@ jobs:
       - name: Build and test with Docker
         run: |
           docker build --tag sync_conda_environments .
-          docker run --rm sync_conda_environments pytest /app
+          docker run --rm sync_conda_environments
