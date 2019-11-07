@@ -2,7 +2,14 @@
 .vscode
 
 # Python Byte code
+__pycache__
 *.pyc
 
 # MacOS hidden files
 .DS_Store
+
+# mypy cache
+.mypy_cache
+
+# pytest cache
+.pytest_cache
