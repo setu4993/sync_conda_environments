@@ -1,6 +1,5 @@
-from glob import glob
-from os.path import join
+from pathlib import Path
 
 
-def glob_env_files(path: str):
-    return glob(join(path, "*.yml"))
+def glob_env_files(path: Path):
+    return path.rglob('*.yml')
