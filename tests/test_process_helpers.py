@@ -2,6 +2,6 @@ from ..helpers.process import run_subprocess
 
 
 def test_run_subprocess():
-    output = run_subprocess(['man'])
+    output = run_subprocess(['pwd'])
     assert output is not None
-    assert output is b''
+    assert isinstance(output, bytes)
