@@ -4,6 +4,7 @@ FROM continuumio/miniconda3
 RUN conda install pytest -y
 
 RUN mkdir /app
-COPY . /app
+WORKDIR /app
+COPY . .
 
-ENTRYPOINT [ "pytest", "/app" ]
+ENTRYPOINT [ "pytest" ]
