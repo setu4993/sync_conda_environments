@@ -13,3 +13,6 @@ __pycache__
 
 # pytest cache
 .pytest_cache
+
+# pytest-cov info
+.coverage
