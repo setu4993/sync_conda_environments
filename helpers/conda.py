@@ -2,6 +2,7 @@ from copy import copy
 from json import loads
 from pathlib import Path
 from typing import List
+
 from loguru import logger
 
 from .process import run_subprocess
@@ -78,7 +79,7 @@ def export_envs(envs: List[str], output_path: Path) -> bool:
         env_file = output_path.joinpath(f"{env}.yml")
         _export_env(filename=env_file, env_name=env)
         assert env_file.is_file(), f"Output file for env {env} not created."
-        logger.info(f'Exported environment {env} to {env_file}.')
+        logger.info(f"Exported environment {env} to {env_file}.")
     return True
 
 
@@ -100,7 +101,7 @@ def create_update_envs(envs: List[str], env_files: List[Path]) -> bool:
     """
     for env_file in env_files:
         _create_update_env(filename=env_file, existing_envs=envs)
-        logger.info(f'Created / updated environment {env_file.stem} from {env_file}.')
+        logger.info(f"Created / updated environment {env_file.stem} from {env_file}.")
     return True
 
 
@@ -113,7 +114,7 @@ def list_envs() -> List[str]:
     List[str]
         List of conda environments.
     """
-    logger.info(f'Listing conda environments...')
+    logger.info(f"Listing conda environments...")
     command = copy(BASE_CONDA_ENV_COMMAND)
     command.extend(["list", "--json"])
     proc_output = run_subprocess(command)
