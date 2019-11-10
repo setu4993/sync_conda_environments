@@ -1,6 +1,6 @@
 from pathlib import Path
-from typing import Generator
+from typing import List
 
 
-def glob_env_files(path: Path) -> Generator[Path, None, None]:
-    return path.rglob("*.yml")
+def glob_env_files(path: Path) -> List[Path]:
+    return list(path.rglob("*.yml"))
