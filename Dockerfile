@@ -1,13 +1,15 @@
 # Original miniconda image.
 FROM continuumio/miniconda3
 
-# Install pytest to the conda environment.
-RUN conda install pytest -y
-
 # Add project to /app.
 RUN mkdir /app
 WORKDIR /app
 COPY . .
+
+# Install requirements using pip.
+RUN pip install -r requirements.txt
+# Install requirements-tests using pip.
+RUN pip install -r requirements-tests.txt
 
 # Run pytest.
 ENTRYPOINT [ "pytest" ]
