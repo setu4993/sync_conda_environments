@@ -16,3 +16,6 @@ __pycache__
 
 # pytest-cov info
 .coverage
+
+# tox
+.tox
