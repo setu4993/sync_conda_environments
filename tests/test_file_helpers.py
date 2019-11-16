@@ -1,7 +1,7 @@
 from pathlib import Path
 from typing import List
 
-from ..helpers.file import *
+from ..helpers.file import glob_env_files
 
 
 def test_list_envs():
