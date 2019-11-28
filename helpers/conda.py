@@ -3,7 +3,11 @@ from json import loads
 from pathlib import Path
 from typing import List
 
-from loguru import logger
+try:
+    from loguru import logger
+except ImportError:
+    import logging
+    logger = logging.getLogger(__name__)
 
 from .process import run_subprocess
 
