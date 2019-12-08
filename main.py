@@ -1,5 +1,9 @@
+# Standard libraries
 import argparse
 import pathlib
+
+from helpers.conda import create_update_envs, export_envs, list_envs
+from helpers.file import glob_env_files
 
 try:
     from loguru import logger
@@ -7,8 +11,6 @@ except ImportError:
     import logging
     logger = logging.getLogger(__name__)
 
-from helpers.conda import create_update_envs, export_envs, list_envs
-from helpers.file import glob_env_files
 
 
 def main():
