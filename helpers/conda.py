@@ -11,11 +11,15 @@ try:
     from loguru import logger
 except ImportError:
     import logging
-    logger = logging.getLogger(__name__)
+
+    logger = logging.getLogger(__name__)  # type: ignore
 
 
 BASE_CONDA_ENV_COMMAND = ["conda", "env"]
-_file_command = lambda x: ["-f", f"{x}"]
+
+
+def _file_command(x):
+    return ["-f", f"{x}"]
 
 
 def _export_env(filename: Path, env_name: str) -> bytes:
