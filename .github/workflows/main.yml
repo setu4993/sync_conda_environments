@@ -7,7 +7,7 @@ jobs:
     runs-on: macos-latest
 
     steps:
-      - uses: actions/checkout@v2.3.2
+      - uses: actions/checkout@v2.3.3
       - name: Run tests with Miniconda installation on MacOS
         run: |
           # Install miniconda, add it to path.
