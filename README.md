@@ -8,4 +8,4 @@ This can only be used on the same OS (MacOS, Windows, etc.) and architecture (x6
 
 ## Requirements
 
-Tested on Python 3.7, doesn't require any other dependency for execution. Does require `pytest` for testing only (`requirements-tests.txt`).
+Tested on Python 3.7, doesn't require any other dependency for execution. Does require `pytest` for testing.
