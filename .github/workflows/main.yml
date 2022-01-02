@@ -15,9 +15,9 @@ jobs:
           bash ~/miniconda.sh -b -p $HOME/miniconda
           export PATH="$HOME/miniconda/bin:$PATH"
 
-          # Add requirements to the installation.
-          pip install -r requirements.txt
-          pip install -r requirements-tests.txt
+          # Install dependencies with poetry.
+          pip install poetry
+          poetry install
 
-          # Run tests
-          pytest
+          # Run tests.
+          poetry run pytest
