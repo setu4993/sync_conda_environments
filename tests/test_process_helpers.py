@@ -1,5 +1,4 @@
-# Local
-from ..helpers.process import run_subprocess
+from sync_conda_environments.helpers.process import run_subprocess
 
 
 def test_run_subprocess():

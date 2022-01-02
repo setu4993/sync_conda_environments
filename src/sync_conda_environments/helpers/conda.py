@@ -1,18 +1,12 @@
-# Standard libraries
 from copy import copy
 from json import loads
+from logging import getLogger
 from pathlib import Path
 from typing import List
 
-# Local
-from .process import run_subprocess
+from sync_conda_environments.helpers.process import run_subprocess
 
-try:
-    from loguru import logger
-except ImportError:
-    import logging
-
-    logger = logging.getLogger(__name__)  # type: ignore
+logger = getLogger(__name__)
 
 
 BASE_CONDA_ENV_COMMAND = ["conda", "env"]

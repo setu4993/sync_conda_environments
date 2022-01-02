@@ -1,9 +1,11 @@
-# Standard libraries
 from pathlib import Path
 from typing import List
 
-# Local
-from ..helpers.conda import create_update_envs, export_envs, list_envs
+from sync_conda_environments.helpers.conda import (
+    create_update_envs,
+    export_envs,
+    list_envs,
+)
 
 
 def test_list_envs():

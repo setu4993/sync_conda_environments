@@ -1,16 +1,15 @@
-# Standard libraries
 import argparse
 import pathlib
+from logging import getLogger
 
-from helpers.conda import create_update_envs, export_envs, list_envs
-from helpers.file import glob_env_files
+from sync_conda_environments.helpers.conda import (
+    create_update_envs,
+    export_envs,
+    list_envs,
+)
+from sync_conda_environments.helpers.file import glob_env_files
 
-try:
-    from loguru import logger
-except ImportError:
-    import logging
-
-    logger = logging.getLogger(__name__)
+logger = getLogger(__name__)
 
 
 def main():
@@ -56,7 +55,3 @@ def main():
         env_files = glob_env_files(output_path)
         result = create_update_envs(envs=envs, env_files=env_files)
         assert result, "Create / update didn't complete successfully."
-
-
-if __name__ == "__main__":
-    main()
