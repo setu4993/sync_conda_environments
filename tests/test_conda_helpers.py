@@ -14,15 +14,17 @@ def test_list_envs():
     assert len(envs) >= 0
 
 
-def test_export_envs():
+def test_export_envs(tmp_path):
     envs = ["base"]
-    output_path = Path(".")
-    result = export_envs(envs, output_path)
+    result = export_envs(envs, tmp_path)
     assert result
 
 
-def test_create_update_envs():
+def test_create_update_envs(tmp_path):
     envs = ["base"]
-    env_files = [Path(".").joinpath("base.yml")]
+    # Setup
+    export_envs(envs, tmp_path)
+    # Test
+    env_files = [tmp_path.joinpath("base.yml")]
     result = create_update_envs(envs, env_files)
     assert result
